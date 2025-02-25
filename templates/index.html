@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detecció d'objectes</title>
+</head>
+<body>
+    <h2>Puja una imatge</h2>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Detectar</button>
+    </form>
+
+    {% if uploaded_image %}
+        <h3>Resultat</h3>
+        <img src="{{ url_for('uploaded_file', filename=uploaded_image) }}" width="300">
+        <img src="{{ url_for('processed_file', filename=processed_image) }}" width="300">
+    {% endif %}
+</body>
+</html>
